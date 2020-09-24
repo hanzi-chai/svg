@@ -63,7 +63,7 @@ h3 {
 #fontsvg {
     position: absolute;
     z-index: 1;
-    margin: 10px;
+    border: 1px solid black;
 }
 
 .numberModel {
