@@ -71,9 +71,15 @@ class App extends Component {
         this.setState({ currentComponent: currentComponent });
     }
 
-    changeNumber(strokeIndex, pathIndex, paramIndex, value) {
+    changeNumber(strokeIndex, curveIndex, parameterIndex, value) {
         this.setState(state => {
-            state.components[state.currentComponent][strokeIndex].paths[pathIndex].params[paramIndex] = value;
+            if (curveIndex === -1) {
+                state.components[state.currentComponent][strokeIndex].start[parameterIndex] = value;
+            } else {
+                state.components[state.currentComponent][strokeIndex]
+                .curveList[curveIndex]
+                .parameterList[parameterIndex] = value;
+            }
             state.componentChanged.add(state.currentComponent);
             return state
         });

@@ -26,11 +26,11 @@ const View = ({data, font, char, alias}) => {
 }
 
 const StrokeView = ({stroke, index}) => {
-    const {paths} = stroke;
-    let d = ''
-    for (let path of paths) {
-        let {cmd, params} = path
-        d += cmd + params.join(' ')
+    const {start, curveList} = stroke;
+    let d = 'M' + start.join(' ');
+    for (let curve of curveList) {
+        let {command, parameterList} = curve;
+        d += command + parameterList.join(' ');
     }
     return (
         <path d={d} stroke="red"
