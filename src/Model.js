@@ -37,24 +37,24 @@ const CurveModel = ({curve, curveIndex, strokeIndex, change}) => {
             <span className="command">{command}</span>
             {
                 parameterList.map(
-                    (parameter, parameterIndex) => <NumberModel key={parameterIndex} parameter={parameter} paramIndex={parameterIndex} curveIndex={curveIndex} strokeIndex={strokeIndex} change={change}/>
+                    (parameter, parameterIndex) => <NumberModel key={parameterIndex} parameter={parameter} parameterIndex={parameterIndex} curveIndex={curveIndex} strokeIndex={strokeIndex} change={change}/>
                 )
             }
         </li>
     )
 }
 
-const handleNumberInput = (change, paramIndex, pathIndex, strokeIndex, event) => {
+const handleNumberInput = (change, parameterIndex, curveIndex, strokeIndex, event) => {
     let value = event.target.value;
-    change(strokeIndex, pathIndex, paramIndex, value);
+    change(strokeIndex, curveIndex, parameterIndex, value);
 }
 
-const handleNumberIncrease = (change, paramIndex, pathIndex, strokeIndex, param, event) => {
-    change(strokeIndex, pathIndex, paramIndex, param + 1)
+const handleNumberIncrease = (change, parameterIndex, curveIndex, strokeIndex, parameter, event) => {
+    change(strokeIndex, curveIndex, parameterIndex, parameter + 1);
 }
 
-const handleNumberDecrease = (change, paramIndex, pathIndex, strokeIndex, param, event) => {
-    change(strokeIndex, pathIndex, paramIndex, param - 1)
+const handleNumberDecrease = (change, parameterIndex, curveIndex, strokeIndex, parameter, event) => {
+    change(strokeIndex, curveIndex, parameterIndex, parameter - 1);
 }
 
 const NumberModel = ({parameter, parameterIndex, curveIndex, strokeIndex, change}) => {

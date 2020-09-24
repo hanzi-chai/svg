@@ -11,7 +11,6 @@
     "express": "^4.17.1",
     "forever": "^3.0.2",
     "js-yaml": "^3.14.0",
-    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
@@ -20,9 +19,8 @@
   },
   "scripts": {
     "glyphs": "node server/glyphs.js",
-    "build": "react-scripts build",
-    "test": "nodemon server/server.js",
-    "start": "forever start server/server.js",
+    "test": "react-scripts build && node server/server.js",
+    "start": "react-scripts build && forever start server/server.js",
     "stop": "forever stopall"
   },
   "eslintConfig": {
