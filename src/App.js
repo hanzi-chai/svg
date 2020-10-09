@@ -51,7 +51,7 @@ class App extends Component {
             progressDiff: progressDiff
         })
         .then(res => {
-            console.log(res.data);
+            alert(res.data.status);
         })
         this.setState({
             componentChanged: new Set(),

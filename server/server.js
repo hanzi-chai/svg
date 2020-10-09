@@ -24,7 +24,7 @@ app.post('/api/', (req, res) => {
     const {componentDiff, progressDiff} = req.body;
     Object.assign(components, componentDiff);
     Object.assign(progress, progressDiff);
-    write('data/components.yaml', components);
+    write('data/components.yaml', components, {flowLevel: 2});
     write('progress.yaml', progress);
     res.json({
         status: 'complete'

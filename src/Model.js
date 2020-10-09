@@ -14,7 +14,6 @@ const Model = ({data, char, change}) => {
 
 const StrokeModel = ({stroke, strokeIndex, change}) => {
     const {feature, start, curveList} = stroke;
-    console.log(feature, start, curveList);
     return (
         <Fragment>
             <h3>{feature}</h3>
@@ -45,7 +44,7 @@ const CurveModel = ({curve, curveIndex, strokeIndex, change}) => {
 }
 
 const handleNumberInput = (change, parameterIndex, curveIndex, strokeIndex, event) => {
-    let value = event.target.value;
+    let value = parseInt(event.target.value);
     change(strokeIndex, curveIndex, parameterIndex, value);
 }
 
